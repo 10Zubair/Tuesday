@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "letter_opener"
 end
 
 group :development do
@@ -54,3 +55,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hirb', '~> 0.7.3'
+gem 'jquery-rails', '~> 4.4'
+gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
+gem 'ransack'
+gem 'devise'

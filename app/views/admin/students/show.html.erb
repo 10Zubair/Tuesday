@@ -1,0 +1,24 @@
+<div class="col-lg-12">
+	<div class="card rounded-0 shadow-lg">
+		<p id="notice"><%= notice %></p>
+
+		
+		<h1>Student details</h1>
+		<p><strong>Name :</strong><%= @student.full_name%></p>
+		<div class="container">
+		<p><strong>First Name: </strong><%=@student.first_name %></p>
+		<p><strong>Last Name: </strong><%=@student.last_name %></p>	
+		<p><strong>Student Email: </strong><%=@student.email %></p>
+		<% if @student.date_of_birth.present? %>
+		<p><strong>Date of birth :</strong><%= formatted_date(@student.date_of_birth) %></p>
+		<% end %>
+		<p><strong>Age : </strong><%=@student.age%></p>
+		<p><strong>Permanent contact number : </strong><%=@student.permanent_contact_number%></p>
+		<p><strong>Alternate contact number : </strong><%=@student.alternate_contact_number%></p>
+		<p><strong>Permanent Address : </strong><%=@student.permanent_address%></p>
+		<p><strong>Local Address : </strong><%=@student.local_address%></p>
+		<%= link_to "Edit", edit_admin_student_path(@student.id), class: "btn btn-primary" %> 
+		<%= link_to "Back", admin_students_path, class: "btn btn-primary"%>
+		</div>
+	</div>
+</div>

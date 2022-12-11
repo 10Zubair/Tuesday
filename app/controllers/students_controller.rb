@@ -1,5 +1,10 @@
 class StudentsController < ApplicationController
+	#include ApplicationHelper
+	# can use all the helpers method in helper file be used in the controller
+	layout "admin"
+
 	before_action :load_student!, only: %i[show edit update destroy]
+	helper_method :formatted_date
 	def index
 		@students = Student.all
 	end
@@ -27,7 +32,7 @@ class StudentsController < ApplicationController
 	def update
 		@student = load_student!
 		if @student.update(student_params)
-			redirect_to student_path(@student)
+			redirect_to student_path(@student), notice: "Updated successfully"
 		else
 			render :edit
 			
@@ -50,5 +55,9 @@ class StudentsController < ApplicationController
 
 	def student_params
 		params.require(:student).permit(:first_name,:last_name,:email, :date_of_birth, :permanent_contact_number,:alternate_contact_number,:permanent_address, :local_address)
+	end
+
+	def formatted_date(date)
+		date.strftime("%a, %b %d %Y") if  date.present?
 	end
 end
